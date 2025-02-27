@@ -1,0 +1,39 @@
+const mongoose = require("mongoose");
+
+const OnetoOneRoomSchema = new mongoose.Schema(
+  {
+    userIdOne: {
+      type: String,
+      require: true,
+    },
+    usernameOne: {
+      type: String,
+      require: true,
+    },
+    userIdTwo: {
+        type: String,
+        require: true,
+      },
+    usernameTwo: {
+        type: String,
+        require: true,
+      },
+    ChatName: {
+      type: String,
+      max: 500,
+      default: ""
+    },
+    ChatEmoji: {
+      type: String,
+      max: 500,
+      default: "",
+    },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("OnetoOneRoom", OnetoOneRoomSchema);
